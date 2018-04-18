@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<title>The Watering Hole</title>
+<div id="app">
+  <div class="Header">
+    <div class ="Title">
+      <h1><u>The Watering Hole</u></h1>
+    </div>
+    <div class="deleteButton" v-if="quizScreen">
+        <p><button class="smallButton" v-on:click="signOut">Sign Out</button>
+            <button class="smallButton" v-on:click="deleteAccountAreYouSure">Delete Account</button></p>
+    </div>
+  </div>
+  </head>
+  <body>
+  <head>
+<link rel="stylesheet" href="/styles.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+        <div v-if="signInScreen">
+            <h1>Please enter your username and password.</h1>
+            <h3>For new users, please enter your name with a new username and password to create an account.</h3>
+            <h4 style="color: red;">{{message}}</h4>
+            <label>Name:</label>
+            <input id="nameInput" type="text" v-model="name" style="margin-bottom: 10px"><br>
+            <label>Username:  </label>
+            <input id="userNameInput" type="text" v-model="username">
+            <label> Password: </label>
+            <input id="passwordSubmit" type="password" v-model="password" style="margin-bottom: 10px"><br>
+            <button class="smallButton" v-on:click="login">Login</button>
+            <button class="smallButton" v-on:click="register">Register</button>
+
+            <div v-if="forgotPass">
+            <button class="smallButton" v-on:click="forgotPassword">Forgot Password</button>
+            <h4>{{forgotten}}</h4>
+          </div>
+          <div v-else>
+            <h4>{{forgotten}}</h4>
+            <button class="smallButton" v-on:click="prettyPlease">Pretty please?</button>
+          </div>
+        </div>
+
+      <div v-if="startButton">
+          <h1>Welcome to our cocktail party, {{name}}!</h1>
+          <h3>You currently have {{answerCounter}} drinks properly identified!</h3>
+          <h3>Press the button below to test your alcohol identification abilities. <i class="fas fa-glass-martini"></i></h3>
+          <button class="bigButton" v-on:click="start">Let's get <b>Zozzled!</b></button><br>
+          <img v-bind:src= "currentPicture">
+      </div>
+
+      <div v-if="quizScreen">
+        <div class="quiz">
+          <div v-if="nextQuestionButton">
+            <h3>{{results}}</h3>
+            <h4>The answer is {{currentDrink}}</h4>
+            <h4>You have answered {{answerCounter}} right</h4>
+            <button class="bigButton" v-on:click="nextQuestion">Next Question!</button><br>
+          </div>
+          <div v-else>
+          <div class="answers">
+            <p>
+              <h3>Name That Drink!</h3><br>
+              <button class="bigButton" v-on:click="A">{{ answerA }}</button><br>
+              <button class="bigButton" v-on:click="B">{{ answerB }}</button><br>
+              <button class="bigButton" v-on:click="C">{{ answerC }}</button><br>
+              <button class="bigButton" v-on:click="D">{{ answerD }}</button><br>
+            </p>
+          </div>
+          </div>
+          <div class="picture">
+        <img v-bind:src= "currentPicture">
+          </div>
+        </div>
+      </div>
+
+      <div v-if="areYouSureMessage">
+        <h3>Are you sure you want to delete your account? The party's just getting started!! Are you the designated driver?</h3>
+        <button class= "smallButton" v-on:click="deleteAccountYes">Yeah, gotta get home safe</button>
+        <button class= "smallButton" v-on:click="deleteAccountNo">Nah, I'll call an uber</button>
+      </div>
+
+
+
+  </body>
+</div>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>-->
+    <script src="https://use.fontawesome.com/0df7854757.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+  <footer>
+    <p>Fueled by the Sunshine. Powered by Laughter. <i class="fas fa-sun"></i></p>
+    <a href="https://github.com/devon65/cocktailsWithBackEnd">See GitHub Repository Here</a></li>
+  </footer>
+</html>

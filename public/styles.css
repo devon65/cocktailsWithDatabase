@@ -1,0 +1,47 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 20px 100px 0px 100px;
+    background: #FFCFAD;
+}
+
+img {
+    max-height: 400px;
+}
+
+.quiz{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.bigButton {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+.smallButton {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    margin-bottom: 2px;
+}
+
+.Header{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+}
+
+/*Footer*/
+footer{
+    border-top: 1px solid;
+    padding-top: 5px;
+    margin-top: 70px;
+}
